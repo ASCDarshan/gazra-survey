@@ -225,7 +225,6 @@ function Survey() {
   const [showThankYouPopup, setShowThankYouPopup] = useState(false);
   const [logoSize, setLogoSize] = useState(100);
   const [loading, setLoading] = useState(false);
-  // Initial logo size in sticky header
   const totalSteps = surveySteps.length;
 
   // Map questions by key for easy access
@@ -367,6 +366,14 @@ function Survey() {
       );
       if (response.ok) {
         setShowThankYouPopup(true);
+
+        setTimeout(() => {
+          setShowThankYouPopup(false);
+          setShowInitialPopup(true);
+          setResponses({});
+          setTextInputs({});
+          setCurrentStep(0);
+        }, 5000);
       } else {
         throw new Error("Submission failed. Please try again.");
       }
