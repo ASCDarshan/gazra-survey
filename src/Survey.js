@@ -587,7 +587,7 @@ function Survey() {
               position: "sticky",
               top: 0,
               zIndex: 1000,
-              backgroundColor: "#f5f5f5", // Light shade background color
+              backgroundColor: "#f5f5f5",
               pb: 1,
               pt: 1,
               transition: "all 0.3s ease",
@@ -766,7 +766,6 @@ function Survey() {
               </Button>
             )}
           </Box>
-          ;
         </>
       )}
     </Box>
