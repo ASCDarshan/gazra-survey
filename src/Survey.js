@@ -34,11 +34,6 @@ const surveyQuestions = [
         key: "AgeGroup",
       },
       {
-        question: "Gender:",
-        options: ["Female", "Male", "Prefer not to say"],
-        key: "Gender",
-      },
-      {
         question: "Location:",
         options: ["Urban", "Semi-Urban", "Rural"],
         key: "Location",
@@ -68,39 +63,21 @@ const surveyQuestions = [
     questions: [
       {
         question:
-          "Do you believe that girls and boys are given equal opportunities in education in India?",
+          "Do you believe that the birth of a girl child is still considered a burden in many Indian families?",
+        options: ["Yes, widely", "Yes, in some cases", "No", "Not Sure"],
+        key: "BirthOfGirlChild",
+      },
+      {
+        question:
+          "Is the dowry system a form of institutionalized abuse against women?",
         options: ["Yes", "No", "Not Sure"],
-        key: "EqualEducationOpportunities",
+        key: "DowryAbuse",
       },
       {
         question:
-          "In your community, is there a preference for male children over female children?",
-        options: [
-          "Strong preference for males",
-          "Slight preference for males",
-          "No preference",
-          "Slight preference for females",
-          "Strong preference for females",
-        ],
-        key: "ChildGenderPreference",
-      },
-      {
-        question:
-          "Have you observed or experienced discrimination against girl children in your family or community?",
-        options: ["Yes, frequently", "Yes, occasionally", "No"],
-        key: "ObservedGirlChildDiscrimination",
-      },
-      {
-        question:
-          "Do you think dowry practices contribute to discrimination against the girl child?",
+          "Should parents who deny education to their daughters face legal consequences?",
         options: ["Yes", "No", "Not Sure"],
-        key: "DowryContributesToDiscrimination",
-      },
-      {
-        question:
-          "Are you aware of government schemes like Beti Bachao Beti Padhao aimed at improving the status of the girl child?",
-        options: ["Yes", "No"],
-        key: "AwareOfGirlChildSchemes",
+        key: "DenyEducationLegalConsequences",
       },
     ],
   },
@@ -110,39 +87,37 @@ const surveyQuestions = [
     questions: [
       {
         question:
-          "How safe do you feel walking alone in your neighborhood after dark?",
+          "Have you ever experienced any of the following forms of harassment in public spaces? (Select all that apply)",
         options: [
-          "Very Safe",
-          "Somewhat Safe",
-          "Neutral",
-          "Somewhat Unsafe",
-          "Very Unsafe",
+          "Eve teasing (catcalling, whistling, lewd remarks)",
+          "Pinching",
+          "Inappropriate touching",
+          "Groping",
+          "Staring or leering",
+          "Following or stalking",
+          "Unwanted comments on appearance",
+          "None of the above",
         ],
-        key: "SafetyWalkingAloneAtNight",
+        key: "PublicHarassment",
+        allowMultiple: true,
       },
       {
         question:
-          "Have you ever altered your daily routine due to safety concerns (e.g., changed routes, avoided certain areas)?",
-        options: ["Yes, frequently", "Yes, occasionally", "No"],
-        key: "AlteredRoutineDueToSafety",
+          "Do you feel that the fear of sexual assault restricts women’s freedom more than any law ever could?",
+        options: [
+          "Strongly Agree",
+          "Agree",
+          "Neutral",
+          "Disagree",
+          "Strongly Disagree",
+        ],
+        key: "FearOfSexualAssault",
       },
       {
         question:
-          "Do you believe that public transportation in your area is safe for women?",
-        options: ["Yes", "No", "Not Sure"],
-        key: "PublicTransportSafety",
-      },
-      {
-        question:
-          "Have you experienced any form of harassment in public places (e.g., eve teasing, pinching, inappropriate touching)?",
-        options: ["Yes", "No", "Prefer not to say"],
-        key: "ExperiencedPublicHarassment",
-      },
-      {
-        question:
-          "Are you aware of helpline numbers or resources available for women's safety in India (e.g., 1091, 181)?",
-        options: ["Yes", "No"],
-        key: "AwareOfSafetyHelplines",
+          "Is society's tendency to blame victims for their attire or behavior an outrage?",
+        options: ["Yes, absolutely", "No", "Not Sure"],
+        key: "VictimBlamingOutrage",
       },
     ],
   },
@@ -152,39 +127,21 @@ const surveyQuestions = [
     questions: [
       {
         question:
-          "Do you believe that women have equal employment opportunities compared to men in India?",
+          "Are you angered by the gender pay gap that still exists in many industries?",
+        options: ["Yes, very much", "Somewhat", "No", "Not Aware"],
+        key: "GenderPayGapAnger",
+      },
+      {
+        question:
+          "Should employers who discriminate against women in hiring and promotions face severe penalties?",
         options: ["Yes", "No", "Not Sure"],
-        key: "EqualEmploymentOpportunities",
+        key: "DiscriminationPenalties",
       },
       {
         question:
-          "Have you ever faced discrimination at the workplace due to your gender?",
-        options: ["Yes", "No", "Not Applicable"],
-        key: "FacedWorkplaceDiscrimination",
-      },
-      {
-        question:
-          "Do you agree that societal expectations limit women’s choices in career and personal life?",
-        options: [
-          "Strongly Agree",
-          "Agree",
-          "Neutral",
-          "Disagree",
-          "Strongly Disagree",
-        ],
-        key: "SocietalExpectationsLimitWomen",
-      },
-      {
-        question:
-          "In your opinion, is domestic violence a serious issue affecting women in India?",
-        options: ["Yes", "No", "Not Sure"],
-        key: "DomesticViolenceSeriousIssue",
-      },
-      {
-        question:
-          "Are you aware of legal provisions like the Protection of Women from Domestic Violence Act, 2005?",
-        options: ["Yes", "No"],
-        key: "AwareOfDomesticViolenceAct",
+          "Do you believe that cultural traditions are often used as excuses to oppress women?",
+        options: ["Yes, frequently", "Yes, sometimes", "No", "Not Sure"],
+        key: "CulturalTraditionsOppress",
       },
     ],
   },
@@ -194,39 +151,26 @@ const surveyQuestions = [
     questions: [
       {
         question:
-          "Do you think the government provides sufficient healthcare facilities specifically for women (e.g., maternal health services)?",
-        options: ["Yes", "No", "Not Sure"],
-        key: "SufficientHealthcareFacilities",
-      },
-      {
-        question:
-          "Have you or someone you know benefited from government schemes aimed at women’s welfare (e.g., Janani Suraksha Yojana, Sukanya Samriddhi Yojana)?",
-        options: ["Yes", "No", "Not Sure"],
-        key: "BenefitedFromWelfareSchemes",
-      },
-      {
-        question:
-          "Are you satisfied with the availability of public sanitation facilities (e.g., toilets) for women in your area?",
+          "Are you frustrated by the lack of proper sanitation facilities for women in public places?",
         options: [
-          "Very Satisfied",
-          "Satisfied",
-          "Neutral",
-          "Dissatisfied",
-          "Very Dissatisfied",
+          "Yes, very frustrated",
+          "Somewhat frustrated",
+          "No",
+          "Not Aware",
         ],
-        key: "SatisfactionWithSanitationFacilities",
+        key: "SanitationFacilitiesFrustration",
       },
       {
         question:
-          "Do you believe that government initiatives have improved the status of women in society over the past decade?",
+          "Should the government be held accountable for failing to provide basic safety measures for women?",
         options: ["Yes", "No", "Not Sure"],
-        key: "GovtInitiativesImprovedStatus",
+        key: "GovernmentAccountableSafety",
       },
       {
         question:
-          "Are you aware of any government programs promoting women’s education and empowerment?",
-        options: ["Yes", "No"],
-        key: "AwareOfEducationEmpowermentPrograms",
+          "Do you believe that government programs for women are more about publicity than actual impact?",
+        options: ["Yes", "No", "Not Sure"],
+        key: "GovernmentProgramsPublicity",
       },
     ],
   },
@@ -236,39 +180,21 @@ const surveyQuestions = [
     questions: [
       {
         question:
-          "Do you feel that the legal system in India adequately protects women’s rights?",
+          "Do you think the legal system in India favors men over women?",
+        options: ["Yes, significantly", "Yes, slightly", "No", "Not Sure"],
+        key: "LegalSystemFavorsMen",
+      },
+      {
+        question:
+          "Are you outraged by the delays in legal proceedings related to crimes against women?",
+        options: ["Yes, extremely", "Somewhat", "No", "Not Aware"],
+        key: "LegalProceedingsDelays",
+      },
+      {
+        question:
+          "Do you believe that the low conviction rates in rape cases discourage victims from seeking justice?",
         options: ["Yes", "No", "Not Sure"],
-        key: "LegalSystemProtectsRights",
-      },
-      {
-        question:
-          "Are you confident in the police’s ability to handle cases related to crimes against women?",
-        options: [
-          "Very Confident",
-          "Somewhat Confident",
-          "Neutral",
-          "Somewhat Unconfident",
-          "Not Confident at All",
-        ],
-        key: "ConfidenceInPolice",
-      },
-      {
-        question:
-          "Do you believe that legal processes (e.g., courts, legal aid) are accessible to women who seek justice?",
-        options: ["Yes", "No", "Not Sure"],
-        key: "LegalProcessesAccessible",
-      },
-      {
-        question:
-          "Have laws like the Criminal Law (Amendment) Act, 2013 (following the Nirbhaya case) made you feel safer?",
-        options: ["Yes", "No", "Not Aware of the Act"],
-        key: "AmendmentActEffect",
-      },
-      {
-        question:
-          "Do you think more legal reforms are needed to improve women’s safety and rights in India?",
-        options: ["Yes", "No", "Not Sure"],
-        key: "NeedMoreLegalReforms",
+        key: "LowConvictionRates",
       },
     ],
   },
@@ -390,87 +316,39 @@ function Survey() {
     const formData = new FormData();
 
     formData.append("AgeGroup", data.AgeGroup);
-    formData.append(
-      "AlteredRoutineDueToSafety",
-      data.AlteredRoutineDueToSafety
-    );
-    formData.append("AmendmentActEffect", data.AmendmentActEffect);
-    formData.append(
-      "AwareOfDomesticViolenceAct",
-      data.AwareOfDomesticViolenceAct
-    );
-    formData.append(
-      "AwareOfEducationEmpowermentPrograms",
-      data.AwareOfEducationEmpowermentPrograms
-    );
-    formData.append("AwareOfGirlChildSchemes", data.AwareOfGirlChildSchemes);
-    formData.append("AwareOfSafetyHelplines", data.AwareOfSafetyHelplines);
-    formData.append("AwareOfGirlChildSchemes", data.AwareOfGirlChildSchemes);
-    formData.append(
-      "BenefitedFromWelfareSchemes",
-      data.BenefitedFromWelfareSchemes
-    );
-    formData.append("ChildGenderPreference", data.ChildGenderPreference);
-    formData.append("ConfidenceInPolice", data.ConfidenceInPolice);
-    formData.append(
-      "DomesticViolenceSeriousIssue",
-      data.DomesticViolenceSeriousIssue
-    );
-    formData.append(
-      "DowryContributesToDiscrimination",
-      data.DowryContributesToDiscrimination
-    );
-    formData.append("EducationLevel", data.EducationLevel);
-    formData.append(
-      "EqualEducationOpportunities",
-      data.EqualEducationOpportunities
-    );
-    formData.append(
-      "EqualEmploymentOpportunities",
-      data.EqualEmploymentOpportunities
-    );
-    formData.append(
-      "ExperiencedPublicHarassment",
-      data.ExperiencedPublicHarassment
-    );
-    formData.append(
-      "FacedWorkplaceDiscrimination",
-      data.FacedWorkplaceDiscrimination
-    );
-    formData.append("Gender", data.Gender);
-    formData.append(
-      "GovtInitiativesImprovedStatus",
-      data.GovtInitiativesImprovedStatus
-    );
-    formData.append("LegalProcessesAccessible", data.LegalProcessesAccessible);
-    formData.append(
-      "LegalSystemProtectsRights",
-      data.LegalSystemProtectsRights
-    );
     formData.append("Location", data.Location);
-    formData.append("NeedMoreLegalReforms", data.NeedMoreLegalReforms);
-    formData.append(
-      "ObservedGirlChildDiscrimination",
-      data.ObservedGirlChildDiscrimination
-    );
-    formData.append("PublicTransportSafety ", data.PublicTransportSafety);
-    formData.append(
-      "SafetyWalkingAloneAtNight",
-      data.SafetyWalkingAloneAtNight
-    );
-    formData.append(
-      "SatisfactionWithSanitationFacilities",
-      data.SatisfactionWithSanitationFacilities
-    );
-    formData.append(
-      "SocietalExpectationsLimitWomen",
-      data.SocietalExpectationsLimitWomen
-    );
     formData.append("StateOrUT", data.StateOrUT);
+    formData.append("EducationLevel", data.EducationLevel);
+    formData.append("BirthOfGirlChild", data.BirthOfGirlChild);
+    formData.append("DowryAbuse", data.DowryAbuse);
     formData.append(
-      "SufficientHealthcareFacilities",
-      data.SufficientHealthcareFacilities
+      "DenyEducationLegalConsequences",
+      data.DenyEducationLegalConsequences
     );
+    formData.append("PublicHarassment", data.PublicHarassment);
+    formData.append("FearOfSexualAssault", data.FearOfSexualAssault);
+    formData.append("VictimBlamingOutrage", data.VictimBlamingOutrage);
+    formData.append("GenderPayGapAnger", data.GenderPayGapAnger);
+    formData.append("DiscriminationPenalties", data.DiscriminationPenalties);
+    formData.append(
+      "CulturalTraditionsOppress",
+      data.CulturalTraditionsOppress
+    );
+    formData.append(
+      "SanitationFacilitiesFrustration",
+      data.SanitationFacilitiesFrustration
+    );
+    formData.append(
+      "GovernmentAccountableSafety",
+      data.GovernmentAccountableSafety
+    );
+    formData.append(
+      "GovernmentProgramsPublicity",
+      data.GovernmentProgramsPublicity
+    );
+    formData.append("LegalSystemFavorsMen", data.LegalSystemFavorsMen);
+    formData.append("LegalProceedingsDelays", data.LegalProceedingsDelays);
+    formData.append("LowConvictionRates", data.LowConvictionRates);
 
     // Send data to Google Apps Script
     try {
