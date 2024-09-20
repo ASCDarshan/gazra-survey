@@ -273,6 +273,11 @@ function Survey() {
     });
   };
 
+  const handleNextClick = () => {
+    setCurrentStep(currentStep + 1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   // Determine if a question should be visible based on conditional logic
   const isQuestionVisible = (question) => {
     if (!question.conditional) {
@@ -626,7 +631,7 @@ function Survey() {
             {currentStep < totalSteps - 1 ? (
               <Button
                 variant="contained"
-                onClick={() => setCurrentStep(currentStep + 1)}
+                onClick={handleNextClick}
                 sx={{ ml: "auto" }}
               >
                 Next
