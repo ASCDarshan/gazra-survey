@@ -518,7 +518,15 @@ function Survey() {
           </Box>
           {/* Survey Questions */}
           {currentQuestions.map((q) => (
-            <Card key={q.key} sx={{ mb: 4 }}>
+            <Card
+              key={q.key}
+              sx={{
+                mb: 4,
+                borderRadius: "10px",
+                background: "#e0e0e057",
+                boxShadow: "5px 5px 10px #d3d3d3 -5px -5px 10px #ededed",
+              }}
+            >
               <CardContent>
                 <Typography variant="subtitle1" gutterBottom>
                   {q.question}
@@ -559,6 +567,14 @@ function Survey() {
                             whiteSpace: "normal",
                             wordBreak: "break-word",
                             minHeight: 80,
+                            transition:
+                              "background-color 0.3s ease-in-out, color 0.3s ease-in-out",
+                            color:
+                              responses[q.key] === option ? "white" : "black",
+                            borderColor:
+                              responses[q.key] === option
+                                ? (theme) => theme.palette.primary.main
+                                : "black",
                           }}
                         >
                           {option}
@@ -602,6 +618,14 @@ function Survey() {
                             whiteSpace: "normal",
                             wordBreak: "break-word",
                             minHeight: 80,
+                            transition:
+                              "background-color 0.3s ease-in-out, color 0.3s ease-in-out",
+                            color:
+                              responses[q.key] === option ? "white" : "black",
+                            borderColor:
+                              responses[q.key] === option
+                                ? (theme) => theme.palette.primary.main
+                                : "black",
                           }}
                         >
                           {option}
