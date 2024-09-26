@@ -357,7 +357,7 @@ function Survey() {
     // Send data to Google Apps Script
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxgCVlFZu3G6EWY_djyLnKvVm0Bm-mBYMTd3O75YBCjyDMUgg-kTaHfA-17MXSV3Cdp6A/exec",
+        "https://script.google.com/macros/s/AKfycbx_kpkgxSwUL7b32jhk71rjhTsDuhrJ6MBixJGCqfSlEf7oT2zeJAi8gWWA1hN06BkpXA/exec",
         {
           method: "POST",
           body: formData,
