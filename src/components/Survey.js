@@ -562,6 +562,7 @@ const Survey = () => {
                             width: "100%",
                             minHeight: 80,
                             display: "flex",
+                            fontWeight:"bold",
                             textAlign: "center",
                             whiteSpace: "normal",
                             alignItems: "center",
@@ -570,11 +571,11 @@ const Survey = () => {
                             transition:
                               "background-color 0.3s ease-in-out, color 0.3s ease-in-out",
                             color:
-                              responses[q.key] === option ? "white" : "black",
+                              responses[q.key] === option ? "white" : "#50352c",
                             borderColor:
                               responses[q.key] === option
                                 ? (theme) => theme.palette.primary.main
-                                : "black",
+                                : "#50352c",
                           }}
                         >
                           {option}
@@ -610,6 +611,7 @@ const Survey = () => {
                             width: "100%",
                             minHeight: 80,
                             display: "flex",
+                            fontWeight:"bold",
                             textAlign: "center",
                             whiteSpace: "normal",
                             alignItems: "center",
@@ -618,11 +620,11 @@ const Survey = () => {
                             transition:
                               "background-color 0.3s ease-in-out, color 0.3s ease-in-out",
                             color:
-                              responses[q.key] === option ? "white" : "black",
+                              responses[q.key] === option ? "white" : "#50352c",
                             borderColor:
                               responses[q.key] === option
                                 ? (theme) => theme.palette.primary.main
-                                : "black",
+                                : "#50352c",
                           }}
                         >
                           {option}
