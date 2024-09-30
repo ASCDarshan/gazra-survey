@@ -13,15 +13,17 @@ import {
   DialogActions,
   CircularProgress,
 } from "@mui/material";
+import logo from "../images/logo.png";
+import backgroundImage from "../images/BG-Main.jpg";
 
-// Survey Questions Array
+// Survey Questions
 const surveyQuestions = [
   // Demographic Information
   {
     section: "Demographic Information (Optional but Helpful for Analysis):",
     questions: [
       {
-        question: "Age Group:",
+        question: "Age Group : ",
         options: [
           "Under 18",
           "18–24",
@@ -34,17 +36,17 @@ const surveyQuestions = [
         key: "AgeGroup",
       },
       {
-        question: "Location:",
+        question: "Location : ",
         options: ["Urban", "Semi-Urban", "Rural"],
         key: "Location",
       },
       {
-        question: "State/Union Territory: (Please specify)",
+        question: "State/Union Territory :  (Please specify)",
         key: "StateOrUT",
         isTextInput: true,
       },
       {
-        question: "Education Level:",
+        question: "Education Level : ",
         options: [
           "No Formal Education",
           "Primary Education",
@@ -59,7 +61,7 @@ const surveyQuestions = [
   },
   // Section A: Girl Child Discrimination
   {
-    section: "Section A: Girl Child Discrimination",
+    section: "Section A : Girl Child Discrimination",
     questions: [
       {
         question:
@@ -87,7 +89,7 @@ const surveyQuestions = [
     questions: [
       {
         question:
-          "Have you ever experienced any of the following forms of harassment in public spaces? (Select all that apply)",
+          "Have you ever experienced any of the following forms of harassment in public spaces? (Select all that apply)?",
         options: [
           "Eve teasing (catcalling, whistling, lewd remarks)",
           "Pinching",
@@ -216,8 +218,7 @@ surveyQuestions.forEach((section) => {
   step++;
 });
 
-// Survey Component
-function Survey() {
+const Survey = () => {
   const [responses, setResponses] = useState({});
   const [textInputs, setTextInputs] = useState({});
   const [currentStep, setCurrentStep] = useState(0);
@@ -411,15 +412,15 @@ function Survey() {
   }, []);
 
   return (
-    <Box sx={{ p: { xs: 2, md: 4 } }}>
-      {/* Initial Popup */}
+    <Box
+      sx={{ p: { xs: 2, md: 4 }, backgroundImage: `url(${backgroundImage})` }}
+    >
       <Dialog open={showInitialPopup} onClose={() => {}}>
         <DialogContent>
-          {/* Logo in Popup */}
           <Box sx={{ textAlign: "center", mb: 2 }}>
             <img
-              src="https://gazra.org/static/img/logo.png"
-              alt="Logo"
+              src={logo}
+              alt="SHRI MAHARANI CHIMNABAI STREE UDYOGALAYA"
               style={{ maxWidth: "200px", width: "100%", height: "auto" }}
             />
           </Box>
@@ -444,17 +445,16 @@ function Survey() {
           </DialogActions>
         </Grid>
       </Dialog>
-      {/* Thank-You Popup */}
+
       <Dialog
         open={showThankYouPopup}
         onClose={() => setShowThankYouPopup(false)}
       >
         <DialogContent>
-          {/* Logo in Popup */}
           <Box sx={{ textAlign: "center", mb: 2 }}>
             <img
-              src="https://gazra.org/static/img/logo.png"
-              alt="Logo"
+              src={logo}
+              alt="SHRI MAHARANI CHIMNABAI STREE UDYOGALAYA"
               style={{ maxWidth: "200px", width: "100%", height: "auto" }}
             />
           </Box>
@@ -468,40 +468,39 @@ function Survey() {
           </Typography>
         </DialogContent>
       </Dialog>
-      {/* Survey Content */}
+
       {!showInitialPopup && !showThankYouPopup && (
         <>
-          {/* Sticky Progress Bar */}
           <Box
             sx={{
-              position: "sticky",
-              top: 0,
-              zIndex: 1000,
-              backgroundColor: "#f5f5f5",
               pb: 1,
               pt: 1,
+              top: 0,
+              zIndex: 1000,
+              position: "sticky",
+              borderRadius: "10px",
+              backgroundColor: "#f5f5f5",
               transition: "all 0.3s ease",
               borderBottom: "1px solid #ddd",
             }}
           >
             <Box
               sx={{
+                p: 1,
                 display: "flex",
                 alignItems: "center",
-                px: { xs: 1, md: 2 },
               }}
             >
-              {/* Logo in Sticky Header */}
               <img
-                src="https://gazra.org/static/img/logo.png"
-                alt="Logo"
+                src={logo}
+                alt="SHRI MAHARANI CHIMNABAI STREE UDYOGALAYA"
                 style={{
                   width: `${logoSize}px`,
                   height: "auto",
                   transition: "width 0.3s ease",
                 }}
               />
-              <Box sx={{ ml: 2 }}>
+              <Box>
                 <Typography variant="h5" gutterBottom>
                   Survey on Women's Status and Safety in India
                 </Typography>
@@ -516,19 +515,23 @@ function Survey() {
               sx={{ mt: 1 }}
             />
           </Box>
-          {/* Survey Questions */}
+
           {currentQuestions.map((q) => (
             <Card
               key={q.key}
               sx={{
-                mb: 4,
+                my: 4,
                 borderRadius: "10px",
-                background: "#e0e0e057",
+                backgroundColor: "#f5f5f5",
                 boxShadow: "5px 5px 10px #d3d3d3 -5px -5px 10px #ededed",
               }}
             >
               <CardContent>
-                <Typography variant="subtitle1" gutterBottom>
+                <Typography
+                  variant="subtitle1"
+                  gutterBottom
+                  fontWeight={"bold"}
+                >
                   {q.question}
                 </Typography>
                 {q.isTextInput ? (
@@ -541,10 +544,9 @@ function Survey() {
                     onChange={(e) =>
                       handleTextInputChange(q.key, e.target.value)
                     }
-                    sx={{ mt: 2 }}
                   />
                 ) : q.allowMultiple ? (
-                  <Grid container spacing={1} sx={{ mt: 1 }}>
+                  <Grid container spacing={1}>
                     {q.options.map((option) => (
                       <Grid item xs={6} sm={4} md={3} key={option}>
                         <Button
@@ -556,17 +558,15 @@ function Survey() {
                           }
                           onClick={() => handleSelectMultiple(q.key, option)}
                           sx={{
-                            width: "100%",
                             height: 80,
+                            width: "100%",
+                            minHeight: 80,
                             display: "flex",
+                            textAlign: "center",
+                            whiteSpace: "normal",
                             alignItems: "center",
                             justifyContent: "center",
-                            textAlign: "center",
-                            p: 1,
-                            m: 0,
-                            whiteSpace: "normal",
                             wordBreak: "break-word",
-                            minHeight: 80,
                             transition:
                               "background-color 0.3s ease-in-out, color 0.3s ease-in-out",
                             color:
@@ -589,14 +589,13 @@ function Survey() {
                               onChange={(e) =>
                                 handleTextInputChange(q.key, e.target.value)
                               }
-                              sx={{ mt: 1 }}
                             />
                           )}
                       </Grid>
                     ))}
                   </Grid>
                 ) : (
-                  <Grid container spacing={1} sx={{ mt: 1 }}>
+                  <Grid container spacing={1}>
                     {q.options.map((option) => (
                       <Grid item xs={6} sm={4} md={3} key={option}>
                         <Button
@@ -607,17 +606,15 @@ function Survey() {
                           }
                           onClick={() => handleSelect(q.key, option)}
                           sx={{
-                            width: "100%",
                             height: 80,
+                            width: "100%",
+                            minHeight: 80,
                             display: "flex",
+                            textAlign: "center",
+                            whiteSpace: "normal",
                             alignItems: "center",
                             justifyContent: "center",
-                            textAlign: "center",
-                            p: 1,
-                            m: 0,
-                            whiteSpace: "normal",
                             wordBreak: "break-word",
-                            minHeight: 80,
                             transition:
                               "background-color 0.3s ease-in-out, color 0.3s ease-in-out",
                             color:
@@ -639,7 +636,6 @@ function Survey() {
                               onChange={(e) =>
                                 handleTextInputChange(q.key, e.target.value)
                               }
-                              sx={{ mt: 1 }}
                             />
                           )}
                       </Grid>
@@ -649,7 +645,7 @@ function Survey() {
               </CardContent>
             </Card>
           ))}
-          {/* Navigation Buttons */}
+        
           <Box sx={{ display: "flex", justifyContent: "space-between", mt: 4 }}>
             {currentStep > 0 && (
               <Button
@@ -684,5 +680,5 @@ function Survey() {
       )}
     </Box>
   );
-}
+};
 export default Survey;
