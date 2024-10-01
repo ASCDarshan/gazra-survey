@@ -20,7 +20,7 @@ import backgroundImage from "../images/BG-Main.jpg";
 const surveyQuestions = [
   // Demographic Information
   {
-    section: "Demographic Information (Optional but Helpful for Analysis):",
+    section: "A",
     questions: [
       {
         question: "Age Group : ",
@@ -41,10 +41,21 @@ const surveyQuestions = [
         key: "Location",
       },
       {
+        question:
+          "Which of the following best describes your gender identity? Please select all that apply.",
+        options: ["Male", "Female", "Other"],
+        key: "Gender",
+      },
+      {
         question: "State/Union Territory :  (Please specify)",
         key: "StateOrUT",
         isTextInput: true,
       },
+    ],
+  },
+  {
+    section: "B",
+    questions: [
       {
         question: "Education Level : ",
         options: [
@@ -55,148 +66,166 @@ const surveyQuestions = [
           "Bachelor's Degree",
           "Master's Degree or Higher",
         ],
-        key: "EducationLevel",
-      },
-    ],
-  },
-  // Section A: Girl Child Discrimination
-  {
-    section: "Section A : Girl Child Discrimination",
-    questions: [
-      {
-        question:
-          "Do you believe that the birth of a girl child is still considered a burden in many Indian families?",
-        options: ["Yes, widely", "Yes, in some cases", "No", "Not Sure"],
-        key: "BirthOfGirlChild",
+        key: "Education",
       },
       {
-        question:
-          "Is the dowry system a form of institutionalized abuse against women?",
-        options: ["Yes", "No", "Not Sure"],
-        key: "DowryAbuse",
-      },
-      {
-        question:
-          "Should parents who deny education to their daughters face legal consequences?",
-        options: ["Yes", "No", "Not Sure"],
-        key: "DenyEducationLegalConsequences",
-      },
-    ],
-  },
-  // Section B: Women's Safety
-  {
-    section: "Section B: Women's Safety",
-    questions: [
-      {
-        question:
-          "Have you ever experienced any of the following forms of harassment in public spaces? (Select all that apply)?",
+        question: "Are you familiar with the term violence against women?",
         options: [
-          "Eve teasing (catcalling, whistling, lewd remarks)",
-          "Pinching",
-          "Inappropriate touching",
-          "Groping",
-          "Staring or leering",
-          "Following or stalking",
-          "Unwanted comments on appearance",
-          "None of the above",
+          "Very familiar",
+          "Somewhat familiar",
+          "Not very familiar",
+          "Not at all familiar",
         ],
-        key: "PublicHarassment",
-        allowMultiple: true,
+        key: "ViolenceFamiliarity",
       },
       {
         question:
-          "Do you feel that the fear of sexual assault restricts women’s freedom more than any law ever could?",
+          "Have you ever witnessed or experienced any form of violence against women?",
+        options: ["Yes", "No", "Prefer not to say"],
+        key: "ViolenceAgainstWomen",
+      },
+      {
+        question:
+          "Which of the following do you consider to be forms of violence against women?",
         options: [
-          "Strongly Agree",
-          "Agree",
-          "Neutral",
-          "Disagree",
-          "Strongly Disagree",
+          "Physical assault (e.g., hitting, kicking, pushing)",
+          "Sexual assault or rape",
+          "Verbal abuse or name-calling",
+          "Controlling behavior (e.g., isolating from friends/family, controlling finances)",
+          "Stalking or persistent unwanted attention",
+          "Online harassment or cyberbullying",
+          "Emotional manipulation or gaslighting",
+          "Forced marriage or honor-based violence",
+          "Reproductive coercion (forcing pregnancy or abortion)",
+          "Denial of education or employment opportunities",
         ],
-        key: "FearOfSexualAssault",
-      },
-      {
-        question:
-          "Is society's tendency to blame victims for their attire or behavior an outrage?",
-        options: ["Yes, absolutely", "No", "Not Sure"],
-        key: "VictimBlamingOutrage",
+        key: "ViolenceAgainstWomenTypes",
       },
     ],
   },
-  // Section C: Women's Rights and Discrimination
   {
-    section: "Section C: Women's Rights and Discrimination",
+    section: "C",
     questions: [
       {
         question:
-          "Are you angered by the gender pay gap that still exists in many industries?",
-        options: ["Yes, very much", "Somewhat", "No", "Not Aware"],
-        key: "GenderPayGapAnger",
-      },
-      {
-        question:
-          "Should employers who discriminate against women in hiring and promotions face severe penalties?",
-        options: ["Yes", "No", "Not Sure"],
-        key: "DiscriminationPenalties",
-      },
-      {
-        question:
-          "Do you believe that cultural traditions are often used as excuses to oppress women?",
-        options: ["Yes, frequently", "Yes, sometimes", "No", "Not Sure"],
-        key: "CulturalTraditionsOppress",
-      },
-    ],
-  },
-  // Section D: General Facilities for Women by the Government
-  {
-    section: "Section D: General Facilities for Women by the Government",
-    questions: [
-      {
-        question:
-          "Are you frustrated by the lack of proper sanitation facilities for women in public places?",
+          "In your opinion, how common is physical violence against women in your community?",
         options: [
-          "Yes, very frustrated",
-          "Somewhat frustrated",
-          "No",
-          "Not Aware",
+          "Very common",
+          "Somewhat common",
+          "Not very common",
+          "Not at all common",
+          "Unsure",
         ],
-        key: "SanitationFacilitiesFrustration",
+        key: "PhysicalViolence",
       },
       {
         question:
-          "Should the government be held accountable for failing to provide basic safety measures for women?",
-        options: ["Yes", "No", "Not Sure"],
-        key: "GovernmentAccountableSafety",
+          "Where do you think physical violence against women most commonly occurs?",
+        options: [
+          "At home",
+          "In public spaces",
+          "At work",
+          "In educational institutions",
+        ],
+        key: "PhysicalViolenceLocation",
       },
       {
         question:
-          "Do you believe that government programs for women are more about publicity than actual impact?",
-        options: ["Yes", "No", "Not Sure"],
-        key: "GovernmentProgramsPublicity",
+          "How would you rate the prevalence of sexual violence against women in your community?",
+        options: ["Very high", "High", "Moderate", "Low", "Very low", "Unsure"],
+        key: "SexualViolence",
+      },
+      {
+        question:
+          "Which form of sexual violence do you think is most underreported?",
+        options: [
+          "Rape",
+          "Sexual assault",
+          "Unwanted touching or groping",
+          "Forced kissing",
+          "Sharing intimate images without consent",
+          "Coercion into sexual acts",
+        ],
+        key: "SexualViolenceType",
       },
     ],
   },
-  // Section E: Impact of the Legal System on Women's Lives
   {
-    section: "Section E: Impact of the Legal System on Women's Lives",
+    section: "D",
     questions: [
       {
         question:
-          "Do you think the legal system in India favors men over women?",
-        options: ["Yes, significantly", "Yes, slightly", "No", "Not Sure"],
-        key: "LegalSystemFavorsMen",
+          "In your opinion, what is the biggest barrier to reporting sexual violence?",
+        options: [
+          "Fear of retaliation",
+          "Shame or stigma",
+          "Lack of trust in authorities",
+          "Fear of not being believed",
+          "Lack of awareness of rights and resources",
+        ],
+        key: "SexualViolenceBarrier",
       },
       {
         question:
-          "Are you outraged by the delays in legal proceedings related to crimes against women?",
-        options: ["Yes, extremely", "Somewhat", "No", "Not Aware"],
-        key: "LegalProceedingsDelays",
+          "Do you think emotional/psychological abuse is taken as seriously as physical violence?",
+        options: ["Yes", "No", "Unsure"],
+        key: "EmotionalPsychologicalAbuse",
       },
       {
         question:
-          "Do you believe that the low conviction rates in rape cases discourage victims from seeking justice?",
-        options: ["Yes", "No", "Not Sure"],
-        key: "LowConvictionRates",
+          "Which form of emotional/psychological abuse do you think is most common?",
+        options: [
+          "Name-calling or insulting",
+          "Constant criticism",
+          "Humiliation in public or private",
+          "Gaslighting",
+          "Threats",
+          "Isolation from friends and family",
+        ],
+        key: "EmotionalPsychologicalAbuseType",
+      },
+      {
+        question: "How prevalent do you think cyber violence is against women?",
+        options: [
+          "Very prevalent",
+          "Somewhat prevalent",
+          "Not very prevalent",
+          "Not at all prevalent",
+          "Unsure",
+        ],
+        key: "CyberViolence",
+      },
+    ],
+  },
+  {
+    section: "D",
+    questions: [
+      {
+        question: "Which form of cyber violence do you think is most harmful?",
+        options: [
+          "Online harassment or bullying",
+          "Impersonation on social media",
+          "Revenge porn",
+          "Doxxing",
+        ],
+        key: "CyberViolenceType",
+      },
+      {
+        question:
+          "If you witnessed violence against a woman, what would you most likely do?",
+        options: [
+          "Intervene directly",
+          "Call the authorities",
+          "Offer support to the victim afterwards",
+          "Nothing, out of fear or uncertainty",
+        ],
+        key: "CyberViolenceAction",
+      },
+      {
+        question:
+          "Are you aware of any local resources or organizations that support women experiencing violence?",
+        options: ["Yes", "No"],
+        key: "CyberViolenceAwareness",
       },
     ],
   },
@@ -322,38 +351,32 @@ const Survey = () => {
 
     formData.append("AgeGroup", data.AgeGroup);
     formData.append("Location", data.Location);
+    formData.append("Gender", data.Gender);
     formData.append("StateOrUT", data.StateOrUT);
-    formData.append("EducationLevel", data.EducationLevel);
-    formData.append("BirthOfGirlChild", data.BirthOfGirlChild);
-    formData.append("DowryAbuse", data.DowryAbuse);
+    formData.append("Education", data.Education);
+    formData.append("ViolenceFamiliarity", data.ViolenceFamiliarity);
+    formData.append("ViolenceAgainstWomen", data.ViolenceAgainstWomen);
     formData.append(
-      "DenyEducationLegalConsequences",
-      data.DenyEducationLegalConsequences
+      "ViolenceAgainstWomenTypes",
+      data.ViolenceAgainstWomenTypes
     );
-    formData.append("PublicHarassment", data.PublicHarassment);
-    formData.append("FearOfSexualAssault", data.FearOfSexualAssault);
-    formData.append("VictimBlamingOutrage", data.VictimBlamingOutrage);
-    formData.append("GenderPayGapAnger", data.GenderPayGapAnger);
-    formData.append("DiscriminationPenalties", data.DiscriminationPenalties);
+    formData.append("PhysicalViolence", data.PhysicalViolence);
+    formData.append("PhysicalViolenceLocation", data.PhysicalViolenceLocation);
+    formData.append("SexualViolence", data.SexualViolence);
+    formData.append("SexualViolenceType", data.SexualViolenceType);
+    formData.append("SexualViolenceBarrier", data.SexualViolenceBarrier);
     formData.append(
-      "CulturalTraditionsOppress",
-      data.CulturalTraditionsOppress
-    );
-    formData.append(
-      "SanitationFacilitiesFrustration",
-      data.SanitationFacilitiesFrustration
+      "EmotionalPsychologicalAbuse",
+      data.EmotionalPsychologicalAbuse
     );
     formData.append(
-      "GovernmentAccountableSafety",
-      data.GovernmentAccountableSafety
+      "EmotionalPsychologicalAbuseType",
+      data.EmotionalPsychologicalAbuseType
     );
-    formData.append(
-      "GovernmentProgramsPublicity",
-      data.GovernmentProgramsPublicity
-    );
-    formData.append("LegalSystemFavorsMen", data.LegalSystemFavorsMen);
-    formData.append("LegalProceedingsDelays", data.LegalProceedingsDelays);
-    formData.append("LowConvictionRates", data.LowConvictionRates);
+    formData.append("CyberViolence", data.CyberViolence);
+    formData.append("CyberViolenceType", data.CyberViolenceType);
+    formData.append("CyberViolenceAction", data.CyberViolenceAction);
+    formData.append("CyberViolenceAwareness", data.CyberViolenceAwareness);
 
     // Send data to Google Apps Script
     try {
@@ -504,9 +527,6 @@ const Survey = () => {
                 <Typography variant="h5" gutterBottom>
                   Survey on Women's Status and Safety in India
                 </Typography>
-                <Typography variant="h6" gutterBottom>
-                  {surveySteps[currentStep].title}
-                </Typography>
               </Box>
             </Box>
             <LinearProgress
@@ -562,7 +582,7 @@ const Survey = () => {
                             width: "100%",
                             minHeight: 80,
                             display: "flex",
-                            fontWeight:"bold",
+                            fontWeight: "bold",
                             textAlign: "center",
                             whiteSpace: "normal",
                             alignItems: "center",
@@ -611,7 +631,7 @@ const Survey = () => {
                             width: "100%",
                             minHeight: 80,
                             display: "flex",
-                            fontWeight:"bold",
+                            fontWeight: "bold",
                             textAlign: "center",
                             whiteSpace: "normal",
                             alignItems: "center",
@@ -647,7 +667,7 @@ const Survey = () => {
               </CardContent>
             </Card>
           ))}
-        
+
           <Box sx={{ display: "flex", justifyContent: "space-between", mt: 4 }}>
             {currentStep > 0 && (
               <Button
