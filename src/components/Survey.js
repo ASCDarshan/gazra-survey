@@ -13,7 +13,7 @@ import {
   DialogActions,
   CircularProgress,
 } from "@mui/material";
-import logo from "../images/logo.png";
+import logo from "../images/MCSLogo.png";
 import backgroundImage from "../images/BG-Main.jpg";
 
 // Survey Questions
@@ -51,11 +51,6 @@ const surveyQuestions = [
         key: "StateOrUT",
         isTextInput: true,
       },
-    ],
-  },
-  {
-    section: "B",
-    questions: [
       {
         question: "Education Level : ",
         options: [
@@ -68,6 +63,11 @@ const surveyQuestions = [
         ],
         key: "Education",
       },
+    ],
+  },
+  {
+    section: "B",
+    questions: [
       {
         question: "Are you familiar with the term violence against women?",
         options: [
@@ -91,7 +91,7 @@ const surveyQuestions = [
           "Physical assault (e.g., hitting, kicking, pushing)",
           "Sexual assault or rape",
           "Verbal abuse or name-calling",
-          "Controlling behavior (e.g., isolating from friends/family, controlling finances)",
+          "Isolating from friends/family, controlling finances",
           "Stalking or persistent unwanted attention",
           "Online harassment or cyberbullying",
           "Emotional manipulation or gaslighting",
@@ -447,10 +447,10 @@ const Survey = () => {
               style={{ maxWidth: "200px", width: "100%", height: "auto" }}
             />
           </Box>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h6" gutterBottom fontFamily={"Halant"}>
             Welcome to the Survey on Women's Status and Safety in India
           </Typography>
-          <Typography variant="body1">
+          <Typography variant="body1" fontFamily={"Halant"}>
             This survey aims to gather information about women's status and
             safety in India. Your responses are confidential and anonymous. You
             may skip any questions you're not comfortable answering.
@@ -462,6 +462,7 @@ const Survey = () => {
               onClick={() => setShowInitialPopup(false)}
               color="primary"
               variant="contained"
+              sx={{ fontFamily: "Halant" }}
             >
               Start Survey
             </Button>
@@ -481,10 +482,10 @@ const Survey = () => {
               style={{ maxWidth: "200px", width: "100%", height: "auto" }}
             />
           </Box>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h6" gutterBottom fontFamily={"Halant"}>
             Thank You!
           </Typography>
-          <Typography variant="body1">
+          <Typography variant="body1" fontFamily={"Halant"}>
             Thank you for participating in this survey. Your responses are
             valuable and will contribute to understanding and improving the
             status of women in India.
@@ -524,7 +525,7 @@ const Survey = () => {
                 }}
               />
               <Box>
-                <Typography variant="h5" gutterBottom>
+                <Typography variant="h5" gutterBottom fontFamily={"Halant"}>
                   Survey on Women's Status and Safety in India
                 </Typography>
               </Box>
@@ -551,6 +552,7 @@ const Survey = () => {
                   variant="subtitle1"
                   gutterBottom
                   fontWeight={"bold"}
+                  fontFamily={"Halant"}
                 >
                   {q.question}
                 </Typography>
@@ -596,6 +598,13 @@ const Survey = () => {
                               responses[q.key] === option
                                 ? (theme) => theme.palette.primary.main
                                 : "#50352c",
+                            fontFamily: "Halant",
+                            fontSize: {
+                              xs: "8px", // font size for extra small screens
+                              sm: "14px", // font size for small screens
+                              md: "14px", // font size for medium screens
+                              lg: "14px", // font size for large screens
+                            },
                           }}
                         >
                           {option}
@@ -645,6 +654,13 @@ const Survey = () => {
                               responses[q.key] === option
                                 ? (theme) => theme.palette.primary.main
                                 : "#50352c",
+                            fontFamily: "Halant",
+                            fontSize: {
+                              xs: "8px", // font size for extra small screens
+                              sm: "14px", // font size for small screens
+                              md: "14px", // font size for medium screens
+                              lg: "14px", // font size for large screens
+                            },
                           }}
                         >
                           {option}
@@ -673,6 +689,7 @@ const Survey = () => {
               <Button
                 variant="contained"
                 onClick={() => setCurrentStep(currentStep - 1)}
+                sx={{ fontFamily: "Halant" }}
               >
                 Back
               </Button>
@@ -681,7 +698,7 @@ const Survey = () => {
               <Button
                 variant="contained"
                 onClick={handleNextClick}
-                sx={{ ml: "auto" }}
+                sx={{ ml: "auto", fontFamily: "Halant" }}
               >
                 Next
               </Button>
@@ -692,7 +709,7 @@ const Survey = () => {
                 variant="contained"
                 color="success"
                 onClick={handleSubmit}
-                sx={{ ml: "auto" }}
+                sx={{ ml: "auto", fontFamily: "Halant" }}
               >
                 Submit Survey
               </Button>
