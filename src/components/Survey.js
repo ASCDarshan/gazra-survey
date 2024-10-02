@@ -86,7 +86,7 @@ const surveyQuestions = [
       },
       {
         question:
-          "Which of the following do you consider to be forms of violence against women?",
+          "Which of the following do you consider to be forms of violence against women? (Pick any or all that match your experience)",
         options: [
           "Physical assault (e.g., hitting, kicking, pushing)",
           "Sexual assault or rape",
@@ -100,6 +100,7 @@ const surveyQuestions = [
           "Denial of education or employment opportunities",
         ],
         key: "ViolenceAgainstWomenTypes",
+        allowMultiple: true,
       },
     ],
   },
@@ -120,7 +121,7 @@ const surveyQuestions = [
       },
       {
         question:
-          "Where do you think physical violence against women most commonly occurs?",
+          "Where do you think physical violence against women most commonly occurs? (Pick any or all that match your experience)",
         options: [
           "At home",
           "In public spaces",
@@ -128,6 +129,7 @@ const surveyQuestions = [
           "In educational institutions",
         ],
         key: "PhysicalViolenceLocation",
+        allowMultiple: true,
       },
       {
         question:
@@ -137,7 +139,7 @@ const surveyQuestions = [
       },
       {
         question:
-          "Which form of sexual violence do you think is most underreported?",
+          "Which form of sexual violence do you think is most underreported? (Pick any or all that match your experience)",
         options: [
           "Rape",
           "Sexual assault",
@@ -147,6 +149,7 @@ const surveyQuestions = [
           "Coercion into sexual acts",
         ],
         key: "SexualViolenceType",
+        allowMultiple: true,
       },
     ],
   },
@@ -155,7 +158,7 @@ const surveyQuestions = [
     questions: [
       {
         question:
-          "In your opinion, what is the biggest barrier to reporting sexual violence?",
+          "In your opinion, what is the biggest barrier to reporting sexual violence? (Pick any or all that match your experience)",
         options: [
           "Fear of retaliation",
           "Shame or stigma",
@@ -164,6 +167,7 @@ const surveyQuestions = [
           "Lack of awareness of rights and resources",
         ],
         key: "SexualViolenceBarrier",
+        allowMultiple: true,
       },
       {
         question:
@@ -185,7 +189,7 @@ const surveyQuestions = [
         key: "EmotionalPsychologicalAbuseType",
       },
       {
-        question: "How prevalent do you think cyber violence is against women?",
+        question: "How prevalent do you think cyber violence is against women? (Pick any or all that match your experience)",
         options: [
           "Very prevalent",
           "Somewhat prevalent",
@@ -194,6 +198,7 @@ const surveyQuestions = [
           "Unsure",
         ],
         key: "CyberViolence",
+        allowMultiple: true,
       },
     ],
   },
@@ -570,7 +575,7 @@ const Survey = () => {
                 ) : q.allowMultiple ? (
                   <Grid container spacing={1}>
                     {q.options.map((option) => (
-                      <Grid item xs={6} sm={4} md={3} key={option}>
+                      <Grid item xs={12} sm={6} md={4} lg={3} key={option}>
                         <Button
                           variant={
                             responses[q.key] &&
@@ -580,30 +585,31 @@ const Survey = () => {
                           }
                           onClick={() => handleSelectMultiple(q.key, option)}
                           sx={{
-                            height: 80,
+                            height: { xs: 60, sm: 80 },
                             width: "100%",
-                            minHeight: 80,
                             display: "flex",
                             fontWeight: "bold",
-                            textAlign: "center",
-                            whiteSpace: "normal",
                             alignItems: "center",
-                            justifyContent: "center",
-                            wordBreak: "break-word",
+                            justifyContent: "start",
+                            textAlign: "left",
                             transition:
                               "background-color 0.3s ease-in-out, color 0.3s ease-in-out",
                             color:
-                              responses[q.key] === option ? "white" : "#50352c",
+                              responses[q.key] &&
+                              responses[q.key].includes(option)
+                                ? "white"
+                                : "#50352c",
                             borderColor:
-                              responses[q.key] === option
+                              responses[q.key] &&
+                              responses[q.key].includes(option)
                                 ? (theme) => theme.palette.primary.main
                                 : "#50352c",
                             fontFamily: "Halant",
                             fontSize: {
-                              xs: "8px", // font size for extra small screens
-                              sm: "14px", // font size for small screens
-                              md: "14px", // font size for medium screens
-                              lg: "14px", // font size for large screens
+                              xs: "12px", // extra small screens
+                              sm: "14px", // Small screens
+                              md: "14px", // Medium screens
+                              lg: "14px", // Large screens
                             },
                           }}
                         >
@@ -627,7 +633,7 @@ const Survey = () => {
                 ) : (
                   <Grid container spacing={1}>
                     {q.options.map((option) => (
-                      <Grid item xs={6} sm={4} md={3} key={option}>
+                      <Grid item xs={12} sm={6} md={4} lg={3} key={option}>
                         <Button
                           variant={
                             responses[q.key] === option
@@ -636,16 +642,13 @@ const Survey = () => {
                           }
                           onClick={() => handleSelect(q.key, option)}
                           sx={{
-                            height: 80,
+                            height: { xs: 60, sm: 80 },
                             width: "100%",
-                            minHeight: 80,
                             display: "flex",
                             fontWeight: "bold",
-                            textAlign: "center",
-                            whiteSpace: "normal",
                             alignItems: "center",
-                            justifyContent: "center",
-                            wordBreak: "break-word",
+                            justifyContent: "start",
+                            textAlign: "left",
                             transition:
                               "background-color 0.3s ease-in-out, color 0.3s ease-in-out",
                             color:
@@ -656,10 +659,10 @@ const Survey = () => {
                                 : "#50352c",
                             fontFamily: "Halant",
                             fontSize: {
-                              xs: "8px", // font size for extra small screens
-                              sm: "14px", // font size for small screens
-                              md: "14px", // font size for medium screens
-                              lg: "14px", // font size for large screens
+                              xs: "12px", // extra small screens
+                              sm: "14px", // Small screens
+                              md: "14px", // Medium screens
+                              lg: "14px", // Large screens
                             },
                           }}
                         >
@@ -669,6 +672,7 @@ const Survey = () => {
                           responses[q.key] === option && (
                             <TextField
                               fullWidth
+                              sx={{ mt: 1 }}
                               variant="outlined"
                               value={textInputs[q.key] || ""}
                               onChange={(e) =>
