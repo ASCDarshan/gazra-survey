@@ -54,12 +54,12 @@ const surveyQuestions = [
       {
         question: "Education Level : ",
         options: [
-          "No Formal Education",
-          "Primary Education",
-          "Secondary Education",
-          "Higher Secondary Education",
-          "Bachelor's Degree",
-          "Master's Degree or Higher",
+          "No formal education",
+          "Primary education",
+          "Secondary education",
+          "Higher secondary education",
+          "Bachelor's degree",
+          "Master's degree or higher",
         ],
         key: "Education",
       },
@@ -189,7 +189,8 @@ const surveyQuestions = [
         key: "EmotionalPsychologicalAbuseType",
       },
       {
-        question: "How prevalent do you think cyber violence is against women? (Pick any or all that match your experience)",
+        question:
+          "How prevalent do you think cyber violence is against women? (Pick any or all that match your experience)",
         options: [
           "Very prevalent",
           "Somewhat prevalent",
@@ -606,11 +607,12 @@ const Survey = () => {
                                 : "#50352c",
                             fontFamily: "Halant",
                             fontSize: {
-                              xs: "12px", // extra small screens
-                              sm: "14px", // Small screens
-                              md: "14px", // Medium screens
-                              lg: "14px", // Large screens
+                              xs: "14px", // extra small screens
+                              sm: "16px", // Small screens
+                              md: "16px", // Medium screens
+                              lg: "16px", // Large screens
                             },
+                            textTransform: "none",
                           }}
                         >
                           {option}
@@ -659,11 +661,12 @@ const Survey = () => {
                                 : "#50352c",
                             fontFamily: "Halant",
                             fontSize: {
-                              xs: "12px", // extra small screens
-                              sm: "14px", // Small screens
-                              md: "14px", // Medium screens
-                              lg: "14px", // Large screens
+                              xs: "14px", // extra small screens
+                              sm: "16px", // Small screens
+                              md: "16px", // Medium screens
+                              lg: "16px", // Large screens
                             },
+                            textTransform: "none",
                           }}
                         >
                           {option}
